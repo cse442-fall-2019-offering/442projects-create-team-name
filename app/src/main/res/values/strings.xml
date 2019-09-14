@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">createteamname</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_home">Home</string>
+    <string name="title_add">Add</string>
+    <string name="dont_know_text">I Don\'t Know What I Want</string>
+    <string name="i_know_text">I Know What I Want!</string>
+</resources>
