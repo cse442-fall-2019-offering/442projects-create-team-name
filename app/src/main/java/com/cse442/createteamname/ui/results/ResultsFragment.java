@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
+import com.cse442.createteamname.restaurant.Restaurant;
 
 public class ResultsFragment extends Fragment {
 
@@ -23,25 +24,27 @@ public class ResultsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        String[] restaurants = {
-                "Taco Bell",
-                "Moe's",
-                "Wegman's",
-                "Zetti's",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Tim Hortons",
-                "Starbucks",
+        Restaurant[] restaurants = {
+                new Restaurant("Taco Bell", ""),
+                new Restaurant("Moe's", ""),
+                new Restaurant("Wegman's", ""),
+                new Restaurant("Zetti's", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", ""),
+                new Restaurant("Tim Hortons", "")
         };
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());

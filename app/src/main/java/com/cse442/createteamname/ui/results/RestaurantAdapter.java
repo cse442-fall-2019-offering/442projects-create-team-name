@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.cse442.createteamname.R;
+import com.cse442.createteamname.restaurant.Restaurant;
 
 public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
 
@@ -25,9 +26,9 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
         }
     }
 
-    private String[] restaurantNames;
+    private Restaurant[] restaurantNames;
 
-    public RestaurantAdapter(String[]restaurantNames) {
+    public RestaurantAdapter(Restaurant[]restaurantNames) {
         this.restaurantNames = restaurantNames;
     }
 
@@ -48,7 +49,7 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, int position) {
         TextView textView = holder.restaurantName;
-        textView.setText(restaurantNames[position]);
+        textView.setText(restaurantNames[position].getName());
     }
 
     @Override
