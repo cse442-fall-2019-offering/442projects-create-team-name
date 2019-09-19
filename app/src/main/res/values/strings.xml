@@ -6,4 +6,5 @@
     <string name="dont_know_text">I Don\'t Know What I Want</string>
     <string name="i_know_text">I Know What I Want!</string>
     <string name="default_restaurant">Restaurant Name</string>
+    <string name="default_distance">0.0 mi</string>
 </resources>

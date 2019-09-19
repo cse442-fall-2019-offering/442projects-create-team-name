@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +20,8 @@ public class ResultsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_results, container, false);
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.rv_results);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
 
         String[] restaurants = {
                 "Taco Bell",
@@ -41,8 +43,10 @@ public class ResultsFragment extends Fragment {
                 "Tim Hortons",
                 "Starbucks",
         };
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
         RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
-
         recyclerView.setAdapter(restaurantAdapter);
 
         return root;
