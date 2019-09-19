@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="67dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="376dp"
+        android:text="miles"
+        app:layout_constraintStart_toEndOf="@+id/adddislike"
+        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
@@ -50,5 +59,28 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="268dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adddislike" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="268dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="204dp"
+        android:fontFamily="monospace"
+        android:text="I can travel"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adddislike" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
