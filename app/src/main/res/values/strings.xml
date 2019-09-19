@@ -4,5 +4,6 @@
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
-    <string name="i_know_text">I Know What I Want!</string>
+    <string name="i_know_text">Enter Tag Here (e.g. Italian)</string>
+    <string name="i_know_cuisine">I Know What Cuisine I Want:</string>
 </resources>
