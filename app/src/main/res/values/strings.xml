@@ -5,4 +5,8 @@
     <string name="title_add">Add</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
     <string name="i_know_text">I Know What I Want!</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="whatchu_hate">Whatchu hate</string>
+    <string name="name">Name</string>
 </resources>
