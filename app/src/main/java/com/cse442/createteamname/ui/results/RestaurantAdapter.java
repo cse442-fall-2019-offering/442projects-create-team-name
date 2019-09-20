@@ -47,9 +47,16 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, final int position) {
         TextView textView = holder.restaurantName;
         textView.setText(restaurantNames[position].getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Un-comment this line and link it to the info fragment
+                // Navigation.findNavController(v).navigate(R.id.action_results_to_info);
+            }
+        });
     }
 
     @Override
