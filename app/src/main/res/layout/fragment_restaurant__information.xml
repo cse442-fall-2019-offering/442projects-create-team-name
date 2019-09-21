@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Restaurant_Information">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:text="@string/give_me_directions"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="48dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPostalAddress"
+            android:text="@string/tags_tag1_tag2_tag3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editText" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPostalAddress"
+            android:text="@string/address_123_street_st_ub_ny_12345"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="272dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="phone"
+            android:text="@string/phone_number_xxx_xxx_xxxx"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPostalAddress"
+            android:text="@string/website_www_idkyet_com"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_home_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginBottom="538dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/name_of_restaurant"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
