@@ -4,7 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
-    <string name="i_know_text">I Know What I Want!</string>
+    <string name="i_know_text">Enter Tag Here (e.g. Italian)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="give_me_directions">Give Me Directions</string>
     <string name="tags_tag1_tag2_tag3">Tags: tag1, tag2, tag3</string>
