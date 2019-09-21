@@ -14,4 +14,8 @@
     <string name="name_of_restaurant">Name of Restaurant</string>
     <string name="default_restaurant">Restaurant Name</string>
     <string name="default_distance">0.0 mi</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="whatchu_hate">Whatchu hate</string>
+    <string name="name">Name</string>
 </resources>
