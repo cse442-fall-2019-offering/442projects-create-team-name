@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
@@ -53,8 +54,7 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Un-comment this line and link it to the info fragment
-                // Navigation.findNavController(v).navigate(R.id.action_results_to_info);
+                Navigation.findNavController(v).navigate(R.id.action_results_to_info);
             }
         });
     }
