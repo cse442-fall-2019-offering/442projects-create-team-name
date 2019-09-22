@@ -18,4 +18,12 @@
     <string name="button">Button</string>
     <string name="whatchu_hate">Whatchu hate</string>
     <string name="name">Name</string>
+    <string name="address">Address:</string>
+    <string name="addressData">200 Lee Road, Buffalo, NY 14228</string>
+    <string name="phone">Phone #:</string>
+    <string name="phoneData">(716) 867-5309</string>
+    <string name="website">Website:</string>
+    <string name="websiteData">www.buffalo.edu</string>
+    <string name="tagsView">Tags: tag1, tag2, tag3...</string>
+    <string name="imageDescription">Image of Restaurant</string>
 </resources>
