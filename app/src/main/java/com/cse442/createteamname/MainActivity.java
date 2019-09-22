@@ -39,13 +39,7 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
     }
 
     public void buttonClickShowResults(View v) {
-        Button btn = (Button) findViewById(R.id.dont_know_button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_home_to_results);
-            }
-        });
+          Navigation.findNavController(v).navigate(R.id.action_home_to_results);
     }
 
     @Override
