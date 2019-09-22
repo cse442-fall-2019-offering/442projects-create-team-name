@@ -1,0 +1,16 @@
+This test to ensure everything that needs to be seen, can if fact be seen.
+
+1) Click Settings
+	-Result:  Settings tab should appear
+
+2) Click Home
+	-Result: Home screen should now appear with a button, and search field with a title
+
+3) Click Add
+	-Result: Add page should now appear
+
+4) Hit the phone emulator's back button (sideways triangle) while on either add or settings pages
+	-Result: Return to home page
+
+5) Hit phone emulator's back button again while on the home screen
+	-Result: app should minimize
