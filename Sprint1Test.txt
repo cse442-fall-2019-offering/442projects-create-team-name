@@ -9,14 +9,20 @@ Result: The screen will now change to the settings page
 3) On the bottom click Add
 Results: Screen will now change to Add screen
 
-4) On bottom click Home, then click the search bar
+4) On the bottom click Home, then click the search bar
 Result: Can enter text
 
-5) Click button above search bar
+5) Double-Click button above search bar
 Result: This will take you to the list of dummy restaurants
 
-6) Hit the phone's back button
+6) Click any restaurant in the list
+Result: Page shows up with restaurant information
+
+7) Hit phone's back button
+Result: Screen will go back to list of restaurants
+
+8) Hit the phone's back button
 Result: Screen will now change to home screen
 
-7) Hit the phone's back button again
+9) Hit the phone's back button again
 Result: App will now minimize
