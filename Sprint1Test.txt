@@ -6,8 +6,8 @@ Result: App opens to home page with a button and search bar
 2) On the bottom click Settings
 Result: The screen will now change to the settings page
 
-3) Click the Text fields and start typing
-Result: Text should appear in the field (Use phone's back arrow (triangle on bottom) to exit keyboard)
+3) Click the Text fields and start typing (Enter a number only for Travel Distance)
+Result: Text should appear in the corresponding field (Use phone's back arrow (triangle on bottom) to exit keyboard)
 
 4) On the bottom click Add
 Result: Screen will now change to Add screen
