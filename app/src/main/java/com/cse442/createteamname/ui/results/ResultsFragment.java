@@ -24,28 +24,12 @@ public class ResultsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        Restaurant[] restaurants = {
-                new Restaurant("Taco Bell", ""),
-                new Restaurant("Moe's", ""),
-                new Restaurant("Wegman's", ""),
-                new Restaurant("Zetti's", ""),
-                new Restaurant("Tim Hortons", ""),
-                new Restaurant("Olive Garden", ""),
-                new Restaurant("Taste of India", ""),
-                new Restaurant("Taj Grill", ""),
-                new Restaurant("Duff's", ""),
-                new Restaurant("Anchor Bar", ""),
-                new Restaurant("McDonald's", ""),
-                new Restaurant("Denny's", ""),
-                new Restaurant("Dunkin' Donuts", ""),
-                new Restaurant("Tim Hortons", ""),
-                new Restaurant("The Brick House", ""),
-                new Restaurant("IHOP", ""),
-                new Restaurant("Dancing Chopsticks", ""),
-                new Restaurant("Chick-Mex Grill", ""),
-                new Restaurant("Young Chow", ""),
-                new Restaurant("Santora's", "")
-        };
+        Restaurant[] restaurants = new Restaurant[15];
+        for (int i = 0; i < 15; ++i){
+            restaurants[i] = new Restaurant("Tim Hortons", "1950 Sweet Home Rd, Amherst, NY 14228","(716) 689-0187",
+                    "https://timhortons.com/us/en/index.php", new String[]{"coffee", "breakfast", "fast"});
+        }
+
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
