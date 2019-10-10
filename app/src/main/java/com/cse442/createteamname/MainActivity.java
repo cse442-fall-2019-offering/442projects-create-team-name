@@ -1,8 +1,10 @@
 package com.cse442.createteamname;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -11,6 +13,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.net.URI;
 
 public class MainActivity extends AppCompatActivity implements Restaurant_Information.OnFragmentInteractionListener {
 
@@ -43,4 +47,10 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void open(View view) {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/zcSfb9QDnGQYXuCPA"));
+        startActivity(browserIntent);
+    }
+
 }
