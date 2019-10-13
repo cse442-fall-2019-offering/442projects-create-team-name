@@ -1,6 +1,10 @@
 package com.cse442.createteamname.restaurant;
 
-public class Restaurant {
+import android.text.TextUtils;
+
+import java.io.Serializable;
+
+public class Restaurant implements Serializable {
     private String name, address, phone, website;
     private String[]tags;
 
@@ -46,6 +50,10 @@ public class Restaurant {
 
     public String[] getTags(){
         return tags;
+    }
+
+    public String getTagsString() {
+        return TextUtils.join(", ", tags);
     }
 
     public void setTags(String[] tags){

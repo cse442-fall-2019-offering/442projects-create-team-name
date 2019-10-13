@@ -1,6 +1,7 @@
 package com.cse442.createteamname.ui.results;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,10 +28,10 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
         }
     }
 
-    private Restaurant[] restaurantNames;
+    private Restaurant[] restaurantList;
 
-    public RestaurantAdapter(Restaurant[]restaurantNames) {
-        this.restaurantNames = restaurantNames;
+    public RestaurantAdapter(Restaurant[]restaurantList) {
+        this.restaurantList = restaurantList;
     }
 
     @NonNull
@@ -49,18 +50,25 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, final int position) {
+        // Set the label of this list item to the restaurant name
         TextView textView = holder.restaurantName;
-        textView.setText(restaurantNames[position].getName());
+        textView.setText(restaurantList[position].getName());
+
+        // When the item is selected, send the restaurant object to the restaurant info screen
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_results_to_info);
+                // Create bundle and add the restaurant to be displayed on the info screen
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("restaurant", restaurantList[position]);
+                // Change fragments
+                Navigation.findNavController(v).navigate(R.id.action_results_to_info, bundle);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return restaurantNames.length;
+        return restaurantList.length;
     }
 }
