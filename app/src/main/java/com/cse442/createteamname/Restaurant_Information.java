@@ -17,19 +17,16 @@ import org.w3c.dom.Text;
 
 public class Restaurant_Information extends Fragment {
 
-    private static final String RESTAURANT_ARG = "restaurant";
-
+    // The restaurant to display the info for
     private Restaurant restaurant;
-
-    public Restaurant_Information() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Try to retrieve the Restaurant object from the args passed to this fragment
         if (getArguments() != null) {
-            restaurant = (Restaurant)getArguments().getSerializable(RESTAURANT_ARG);
+            restaurant = (Restaurant)getArguments().getSerializable(getString(R.string.restaurant_key));
         }
     }
 

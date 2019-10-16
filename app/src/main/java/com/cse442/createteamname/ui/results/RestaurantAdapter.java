@@ -28,9 +28,11 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
         }
     }
 
+    private Context context;
     private Restaurant[] restaurantList;
 
-    public RestaurantAdapter(Restaurant[]restaurantList) {
+    public RestaurantAdapter(Context context, Restaurant[]restaurantList) {
+        this.context = context;
         this.restaurantList = restaurantList;
     }
 
@@ -60,7 +62,7 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
             public void onClick(View v) {
                 // Create bundle and add the restaurant to be displayed on the info screen
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("restaurant", restaurantList[position]);
+                bundle.putSerializable(context.getString(R.string.restaurant_key), restaurantList[position]);
                 // Change fragments
                 Navigation.findNavController(v).navigate(R.id.action_results_to_info, bundle);
             }

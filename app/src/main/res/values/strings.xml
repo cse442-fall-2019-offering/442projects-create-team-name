@@ -28,4 +28,7 @@
     <string name="websiteData">www.buffalo.edu</string>
     <string name="tagsView">Tags: tag1, tag2, tag3...</string>
     <string name="imageDescription">Image of Restaurant</string>
+    <string name="restaurant_key">restaurant_info</string>
+    <string name="search_q_key">search_q</string>
+    <string name="i_know_search_label">I Know What Cuisine I Want:</string>
 </resources>
