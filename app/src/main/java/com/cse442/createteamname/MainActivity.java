@@ -46,29 +46,6 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
           Navigation.findNavController(v).navigate(R.id.action_home_to_results);
     }
 
-    //entered text in searchView gets read
-    public void search_input(View v){
-        final SearchView search_view = (SearchView)v.findViewById(R.id.i_know_q);
-        search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                get_Search(search_view.getQuery().toString());
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });
-    }
-
-    //gets the search query so it can be passed on to other functions for the DB
-    public String get_Search(String s){
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-        return s;
-    }
-
     @Override
     public void onFragmentInteraction(Uri uri) {
     }
