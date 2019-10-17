@@ -39,7 +39,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:iconifiedByDefault="false"
-        android:onClick="search_input"
+        android:onClick="buttonClickShowResults"
         android:queryHint="@string/i_know_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
