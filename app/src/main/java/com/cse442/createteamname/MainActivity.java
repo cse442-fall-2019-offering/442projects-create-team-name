@@ -3,9 +3,12 @@ package com.cse442.createteamname;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.cse442.createteamname.ui.results.ResultsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,8 +41,32 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    //don't know button links us to randomized list of restaurants
     public void buttonClickShowResults(View v) {
           Navigation.findNavController(v).navigate(R.id.action_home_to_results);
+    }
+
+    //entered text in searchView gets read
+    public void search_input(View v){
+        final SearchView search_view = (SearchView)v.findViewById(R.id.i_know_q);
+        search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                get_Search(search_view.getQuery().toString());
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+    }
+
+    //gets the search query so it can be passed on to other functions for the DB
+    public String get_Search(String s){
+        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+        return s;
     }
 
     @Override
