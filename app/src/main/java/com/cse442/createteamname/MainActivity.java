@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.cse442.createteamname.ui.results.ResultsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,6 +21,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
 
     //entered text in searchView gets read
     public void search_input(View v){
-        final SearchView search_view = (SearchView)v.findViewById(R.id.i_know_q);
+        final SearchView search_view = v.findViewById(R.id.i_know_q);
         search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -64,29 +66,35 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
             }
         });
         set_Search(search_view.getQuery().toString());
+        Toast.makeText(getApplicationContext(), get_tag2(), Toast.LENGTH_SHORT).show();
     }
 
     //gets the search query so it can be passed on to other functions for the DB
     public void set_Search(String s){
         //The toast below is the test
         //Toast.makeText(getApplicationContext(), s.toLowerCase(), Toast.LENGTH_SHORT).show();
-        s.toLowerCase();
 
         //sSeparates string input by comma
-        List<String> input_List = Arrays.asList(s.split(","));
+        String[] input_List = s.split(",");
 
         //set the different input tags
-        if (input_List.size() >= 1) {
-            String str1 = input_List.get(0);
-            tag1 = str1.replace(" ", "");
+        if (input_List.length == 1) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
         }
-        if (input_List.size() >= 2) {
-            String str2 = input_List.get(1);
-            tag2 = str2.replace(" ", "");
+        if (input_List.length == 2) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
         }
-        if (input_List.size() >= 3) {
-            String str3 = input_List.get(2);
-            tag3 = str3.replace(" ", "");
+        if (input_List.length >= 3) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+            String str3 = input_List[2];
+            tag3 = str3.replace(" ", "").toLowerCase();
         }
     }
 
