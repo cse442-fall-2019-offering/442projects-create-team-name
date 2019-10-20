@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
             }
         });
         set_Search(search_view.getQuery().toString());
-        Toast.makeText(getApplicationContext(), get_tag2(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), get_tag2(), Toast.LENGTH_SHORT).show();
     }
 
     //gets the search query so it can be passed on to other functions for the DB
