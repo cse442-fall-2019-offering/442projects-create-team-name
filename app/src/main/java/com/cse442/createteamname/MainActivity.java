@@ -22,9 +22,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements Restaurant_Information.OnFragmentInteractionListener {
+
 
     private NavController navController;
+    private String tag1;
+    private String tag2;
+    private String tag3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,74 @@ public class MainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+    }
+
+
+    public void buttonClickShowResults(View v) {
+          Navigation.findNavController(v).navigate(R.id.action_home_to_results);
+    }
+
+    //entered text in searchView gets read
+    public void search_input(View v){
+        final SearchView search_view = v.findViewById(R.id.i_know_q);
+        search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+        set_Search(search_view.getQuery().toString());
+        //Toast.makeText(getApplicationContext(), get_tag2(), Toast.LENGTH_SHORT).show();
+    }
+
+    //gets the search query so it can be passed on to other functions for the DB
+    public void set_Search(String s){
+        //The toast below is the test
+        //Toast.makeText(getApplicationContext(), s.toLowerCase(), Toast.LENGTH_SHORT).show();
+
+        //sSeparates string input by comma
+        String[] input_List = s.split(",");
+
+        //set the different input tags
+        if (input_List.length == 1) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length == 2) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length >= 3) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+            String str3 = input_List[2];
+            tag3 = str3.replace(" ", "").toLowerCase();
+        }
+    }
+
+    public String get_tag1(){
+        return tag1;
+    }
+
+    public String get_tag2(){
+        return tag2;
+    }
+
+    public String get_tag3(){
+        return tag3;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
     }
 
     @Override
