@@ -3,6 +3,7 @@ package com.cse442.createteamname;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
@@ -21,11 +22,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Restaurant_Information.OnFragmentInteractionListener {
+
 
     private NavController navController;
     private String tag1;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
+
 
     public void buttonClickShowResults(View v) {
           Navigation.findNavController(v).navigate(R.id.action_home_to_results);
