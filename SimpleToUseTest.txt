@@ -9,6 +9,9 @@ This test to ensure everything that needs to be seen, can if fact be seen.
 3) Click Add
 	-Result: Add page should now appear
 
+4) Double-click button on homepage
+    -Result: list of restaurants pulls up
+
 4) Hit the phone emulator's back button (sideways triangle) while on either add or settings pages
 	-Result: Return to home page
 

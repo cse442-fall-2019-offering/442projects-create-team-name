@@ -4,7 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
-    <string name="i_know_text">Enter Tag Here (e.g. Italian)</string>
+    <string name="i_know_text">1 to 3 Tags (e.g. Italian, Spicy, Fast)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="give_me_directions">Give Me Directions</string>
     <string name="tags_tag1_tag2_tag3">Tags: tag1, tag2, tag3</string>
@@ -18,4 +18,12 @@
     <string name="button">Button</string>
     <string name="whatchu_hate">Whatchu hate</string>
     <string name="name">Name</string>
+    <string name="address">Address:</string>
+    <string name="addressData">200 Lee Road, Buffalo, NY 14228</string>
+    <string name="phone">Phone #:</string>
+    <string name="phoneData">(716) 867-5309</string>
+    <string name="website">Website:</string>
+    <string name="websiteData">www.buffalo.edu</string>
+    <string name="tagsView">Tags: tag1, tag2, tag3...</string>
+    <string name="imageDescription">Image of Restaurant</string>
 </resources>

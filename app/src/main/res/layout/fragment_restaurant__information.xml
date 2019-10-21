@@ -14,126 +14,129 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="200dp"
+            android:contentDescription="@string/imageDescription"
             android:src="@drawable/ic_home_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.028" />
+            app:layout_constraintVertical_bias="0.003" />
 
         <TextView
             android:id="@+id/textViewRestaurantName"
-            android:layout_width="400dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="@string/name_of_restaurant"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textViewAddress"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Address:"
+            android:layout_marginTop="8dp"
+            android:text="@string/address"
             android:textColor="#090505"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRestaurantName" />
 
         <TextView
             android:id="@+id/linkAddress"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:autoLink="map"
             android:clickable="true"
-            android:text="200 Lee Road, Buffalo, NY 14228"
+            android:focusable="true"
+            android:text="@string/addressData"
             android:textColorLink="#1976D2"
-            android:textSize="24sp"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewAddress"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRestaurantName" />
+            app:layout_constraintStart_toEndOf="@+id/textViewAddress" />
 
         <TextView
             android:id="@+id/textViewPhoneNumber"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Phone #:"
+            android:layout_marginTop="40dp"
+            android:text="@string/phone"
             android:textColor="#0F0909"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewAddress" />
 
         <TextView
             android:id="@+id/linkPhoneNumber"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:autoLink="phone"
             android:clickable="true"
-            android:text="(716) 867-5309"
+            android:focusable="true"
+            android:text="@string/phoneData"
             android:textColorLink="#1976D2"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewPhoneNumber"
-            app:layout_constraintTop_toBottomOf="@+id/linkAddress" />
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewPhoneNumber"
+            app:layout_constraintEnd_toEndOf="@+id/linkAddress"
+            app:layout_constraintStart_toStartOf="@+id/linkAddress" />
 
         <TextView
             android:id="@+id/textViewWebsite"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Website:"
+            android:layout_marginTop="8dp"
+            android:text="@string/website"
             android:textColor="#020101"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPhoneNumber" />
 
         <TextView
             android:id="@+id/linkWebsite"
-            android:layout_width="290dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:autoLink="web"
             android:clickable="true"
-            android:text="www.buffalo.edu"
+            android:focusable="true"
+            android:text="@string/websiteData"
             android:textColorLink="#1976D2"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewWebsite"
-            app:layout_constraintTop_toBottomOf="@+id/linkPhoneNumber" />
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewWebsite"
+            app:layout_constraintEnd_toEndOf="@+id/linkPhoneNumber"
+            app:layout_constraintStart_toStartOf="@+id/linkPhoneNumber" />
 
         <TextView
             android:id="@+id/textViewTags"
-            android:layout_width="400dp"
-            android:layout_height="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="Tags: tag1, tag2, tag3..."
+            android:text="@string/tagsView"
             android:textColor="#090303"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linkWebsite"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewWebsite" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewWebsite"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
