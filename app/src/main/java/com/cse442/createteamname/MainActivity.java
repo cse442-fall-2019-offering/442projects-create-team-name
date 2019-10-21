@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.view.View;
 import android.widget.SearchView;
@@ -21,6 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -122,4 +124,10 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void open(View view) {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/zcSfb9QDnGQYXuCPA"));
+        startActivity(browserIntent);
+    }
+
 }
