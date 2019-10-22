@@ -1,33 +1,19 @@
 package com.cse442.createteamname;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.view.View;
 import android.widget.SearchView;
-import android.widget.Toast;
 
-import com.cse442.createteamname.ui.results.ResultsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements Restaurant_Information.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
 
     private NavController navController;
@@ -48,11 +34,6 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-    }
-
-
-    public void buttonClickShowResults(View v) {
-          Navigation.findNavController(v).navigate(R.id.action_home_to_results);
     }
 
     //entered text in searchView gets read
@@ -112,10 +93,6 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
 
     public String get_tag3(){
         return tag3;
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
     }
 
     @Override
