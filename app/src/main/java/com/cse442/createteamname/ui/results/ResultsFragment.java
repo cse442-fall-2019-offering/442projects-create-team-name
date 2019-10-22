@@ -17,6 +17,10 @@ import com.cse442.createteamname.restaurant.Restaurant;
 
 public class ResultsFragment extends Fragment {
 
+    private String tag1;
+    private String tag2;
+    private String tag3;
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -26,9 +30,10 @@ public class ResultsFragment extends Fragment {
         // Try to get the args that have been sent to this fragment
         if(getArguments() != null){
             search_q = getArguments().getString(getString(R.string.search_q_key));
+            set_Search(search_q);
 
             // TODO: Remove this line and query the database with the text
-            Toast.makeText(getContext(), search_q, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getContext(), get_tag1(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -55,5 +60,46 @@ public class ResultsFragment extends Fragment {
         recyclerView.setAdapter(restaurantAdapter);
 
         return root;
+    }
+
+    //gets the search query so it can be passed on to other functions for the DB
+    public void set_Search(String s){
+        //The toast below is the test
+        //Toast.makeText(getApplicationContext(), s.toLowerCase(), Toast.LENGTH_SHORT).show();
+
+        //sSeparates string input by comma
+        String[] input_List = s.split(",");
+
+        //set the different input tags
+        if (input_List.length == 1) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length == 2) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length >= 3) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+            String str3 = input_List[2];
+            tag3 = str3.replace(" ", "").toLowerCase();
+        }
+    }
+
+    public String get_tag1(){
+        return tag1;
+    }
+
+    public String get_tag2(){
+        return tag2;
+    }
+
+    public String get_tag3(){
+        return tag3;
     }
 }
