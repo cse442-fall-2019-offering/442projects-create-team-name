@@ -29,15 +29,19 @@
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.cse442.createteamname.ui.results.ResultsFragment"
-        android:label="fragment_results"
-        tools:layout="@layout/fragment_results" >
+        android:label="@string/title_results"
+        tools:layout="@layout/fragment_results">
         <action
             android:id="@+id/action_results_to_info"
             app:destination="@+id/restaurant_Information" />
     </fragment>
     <fragment
         android:id="@+id/restaurant_Information"
-        android:name="com.cse442.createteamname.Restaurant_Information"
-        android:label="fragment_restaurant__information"
-        tools:layout="@layout/fragment_restaurant__information" />
+        android:name="com.cse442.createteamname.ui.restaurantInfo.Restaurant_Information"
+        android:label="@string/title_info"
+        tools:layout="@layout/fragment_restaurant__information">
+        <argument
+            android:name="Restaurant"
+            app:argType="com.cse442.createteamname.restaurant.Restaurant" />
+    </fragment>
 </navigation>

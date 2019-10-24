@@ -3,6 +3,8 @@
     <string name="title_settings">Settings</string>
     <string name="title_home">Home</string>
     <string name="title_add">Add</string>
+    <string name="title_results">Try these</string>
+    <string name="title_info">Info</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
     <string name="i_know_text">1 to 3 Tags (e.g. Italian, Spicy, Fast)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -26,4 +28,7 @@
     <string name="websiteData">www.buffalo.edu</string>
     <string name="tagsView">Tags: tag1, tag2, tag3...</string>
     <string name="imageDescription">Image of Restaurant</string>
+    <string name="restaurant_key">restaurant_info</string>
+    <string name="search_q_key">search_q</string>
+    <string name="i_know_search_label">I Know What Cuisine I Want:</string>
 </resources>
