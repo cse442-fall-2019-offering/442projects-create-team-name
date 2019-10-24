@@ -15,7 +15,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
-
+  
     private NavController navController;
 
 
@@ -59,4 +59,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void open(View view) {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/zcSfb9QDnGQYXuCPA"));
+        startActivity(browserIntent);
+    }
+
 }

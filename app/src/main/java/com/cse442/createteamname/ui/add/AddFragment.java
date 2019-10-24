@@ -23,7 +23,7 @@ public class AddFragment extends Fragment {
         addViewModel =
                 ViewModelProviders.of(this).get(AddViewModel.class);
         View root = inflater.inflate(R.layout.fragment_add, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+        final TextView textView = root.findViewById(R.id.textView4);
         addViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
