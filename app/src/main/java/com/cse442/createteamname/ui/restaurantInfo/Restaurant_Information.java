@@ -1,4 +1,4 @@
-package com.cse442.createteamname;
+package com.cse442.createteamname.ui.restaurantInfo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
 
 import org.w3c.dom.Text;
