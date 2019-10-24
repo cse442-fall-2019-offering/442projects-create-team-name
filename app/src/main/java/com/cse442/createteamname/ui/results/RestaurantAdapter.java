@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView.Adapter;
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
 
+import java.util.ArrayList;
+
 public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -29,11 +31,11 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
     }
 
     private Context context;
-    private Restaurant[] restaurantList;
+    private ArrayList<Restaurant> restaurants;
 
-    public RestaurantAdapter(Context context, Restaurant[]restaurantList) {
+    public RestaurantAdapter(Context context, ArrayList<Restaurant> restaurants) {
         this.context = context;
-        this.restaurantList = restaurantList;
+        this.restaurants = restaurants;
     }
 
     @NonNull
@@ -54,7 +56,7 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull RestaurantAdapter.ViewHolder holder, final int position) {
         // Set the label of this list item to the restaurant name
         TextView textView = holder.restaurantName;
-        textView.setText(restaurantList[position].getName());
+        textView.setText(restaurants.get(position).getName());
 
         // When the item is selected, send the restaurant object to the restaurant info screen
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +64,7 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
             public void onClick(View v) {
                 // Create bundle and add the restaurant to be displayed on the info screen
                 Bundle bundle = new Bundle();
-                bundle.putSerializable(context.getString(R.string.restaurant_key), restaurantList[position]);
+                bundle.putSerializable(context.getString(R.string.restaurant_key), restaurants.get(position));
                 // Change fragments
                 Navigation.findNavController(v).navigate(R.id.action_results_to_info, bundle);
             }
@@ -71,6 +73,10 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return restaurantList.length;
+        return restaurants.size();
+    }
+
+    public void setRestaurants(ArrayList<Restaurant> restaurants){
+        this.restaurants = restaurants;
     }
 }

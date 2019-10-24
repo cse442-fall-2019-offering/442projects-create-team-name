@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,8 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
+import com.cse442.createteamname.util.QueryTool;
+
+import java.util.ArrayList;
 
 public class ResultsFragment extends Fragment {
+
+    private ArrayList<Restaurant> restaurants;
 
     private String tag1;
     private String tag2;
@@ -28,13 +32,15 @@ public class ResultsFragment extends Fragment {
         String search_q = "";
 
         // Try to get the args that have been sent to this fragment
-        if(getArguments() != null){
+        if(getArguments() != null) {
             search_q = getArguments().getString(getString(R.string.search_q_key));
             set_Search(search_q);
-
-            // TODO: Remove this line and query the database with the text
-            //Toast.makeText(getContext(), get_tag1(), Toast.LENGTH_SHORT).show();
+            restaurants = QueryTool.queryTags(search_q.split(","));
         }
+        else {
+            restaurants = QueryTool.queryTags(new String[]{});
+        }
+
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -44,13 +50,6 @@ public class ResultsFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.rv_results);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-
-        // TODO: Remove this and replace it with actual queried results
-        Restaurant[] restaurants = new Restaurant[15];
-        for (int i = 0; i < 15; ++i){
-            restaurants[i] = new Restaurant("Tim Hortons", "1950 Sweet Home Rd, Amherst, NY 14228","(716) 689-0187",
-                    "https://timhortons.com/us/en/index.php", new String[]{"coffee", "breakfast", "fast"});
-        }
 
         // Set up the recycler view to contain the restaurant list
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
