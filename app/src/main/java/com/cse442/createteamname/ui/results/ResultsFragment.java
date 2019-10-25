@@ -13,8 +13,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
+import com.cse442.createteamname.util.QueryTool;
+
+import java.util.ArrayList;
 
 public class ResultsFragment extends Fragment {
+
+    private ArrayList<Restaurant> restaurants;
+
+    private String tag1;
+    private String tag2;
+    private String tag3;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        String search_q = "";
+
+        // Try to get the args that have been sent to this fragment
+        if(getArguments() != null) {
+            search_q = getArguments().getString(getString(R.string.search_q_key));
+            set_Search(search_q);
+            restaurants = QueryTool.queryTags(search_q.split(","));
+        }
+        else {
+            restaurants = QueryTool.queryTags(new String[]{});
+        }
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -24,34 +51,54 @@ public class ResultsFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        Restaurant[] restaurants = {
-                new Restaurant("Taco Bell", ""),
-                new Restaurant("Moe's", ""),
-                new Restaurant("Wegman's", ""),
-                new Restaurant("Zetti's", ""),
-                new Restaurant("Tim Hortons", ""),
-                new Restaurant("Olive Garden", ""),
-                new Restaurant("Taste of India", ""),
-                new Restaurant("Taj Grill", ""),
-                new Restaurant("Duff's", ""),
-                new Restaurant("Anchor Bar", ""),
-                new Restaurant("McDonald's", ""),
-                new Restaurant("Denny's", ""),
-                new Restaurant("Dunkin' Donuts", ""),
-                new Restaurant("Tim Hortons", ""),
-                new Restaurant("The Brick House", ""),
-                new Restaurant("IHOP", ""),
-                new Restaurant("Dancing Chopsticks", ""),
-                new Restaurant("Chick-Mex Grill", ""),
-                new Restaurant("Young Chow", ""),
-                new Restaurant("Santora's", "")
-        };
+        // Set up the recycler view to contain the restaurant list
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurants);
+        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(getContext(), restaurants);
         recyclerView.setAdapter(restaurantAdapter);
 
         return root;
+    }
+
+    //gets the search query so it can be passed on to other functions for the DB
+    public void set_Search(String s){
+        //The toast below is the test
+        //Toast.makeText(getApplicationContext(), s.toLowerCase(), Toast.LENGTH_SHORT).show();
+
+        //sSeparates string input by comma
+        String[] input_List = s.split(",");
+
+        //set the different input tags
+        if (input_List.length == 1) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length == 2) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+        }
+        if (input_List.length >= 3) {
+            String str1 = input_List[0];
+            tag1 = str1.replace(" ", "").toLowerCase();
+            String str2 = input_List[1];
+            tag2 = str2.replace(" ", "").toLowerCase();
+            String str3 = input_List[2];
+            tag3 = str3.replace(" ", "").toLowerCase();
+        }
+    }
+
+    public String get_tag1(){
+        return tag1;
+    }
+
+    public String get_tag2(){
+        return tag2;
+    }
+
+    public String get_tag3(){
+        return tag3;
     }
 }

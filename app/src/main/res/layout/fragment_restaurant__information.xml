@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Restaurant_Information">
+    tools:context=".ui.restaurantInfo.Restaurant_Information">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -36,7 +36,9 @@
             android:gravity="center"
             android:text="@string/name_of_restaurant"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="36sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/address"
             android:textColor="#090505"
             android:textSize="30sp"
@@ -56,26 +58,31 @@
 
         <TextView
             android:id="@+id/linkAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="269sp"
+            android:layout_height="52sp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:autoLink="map"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/addressData"
             android:textColorLink="#1976D2"
-            android:textSize="30sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewAddress"
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewAddress" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewAddress"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRestaurantName" />
 
         <TextView
             android:id="@+id/textViewPhoneNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:text="@string/phone"
             android:textColor="#0F0909"
             android:textSize="30sp"
@@ -84,24 +91,27 @@
 
         <TextView
             android:id="@+id/linkPhoneNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="269sp"
+            android:layout_height="52sp"
+            android:layout_marginTop="12dp"
             android:autoLink="phone"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/phoneData"
             android:textColorLink="#1976D2"
-            android:textSize="30sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewPhoneNumber"
-            app:layout_constraintEnd_toEndOf="@+id/linkAddress"
-            app:layout_constraintStart_toStartOf="@+id/linkAddress" />
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="@+id/linkAddress"
+            app:layout_constraintTop_toBottomOf="@+id/linkAddress" />
 
         <TextView
             android:id="@+id/textViewWebsite"
-            android:layout_width="0dp"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="22dp"
             android:text="@string/website"
             android:textColor="#020101"
             android:textSize="30sp"
@@ -110,27 +120,33 @@
 
         <TextView
             android:id="@+id/linkWebsite"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="269sp"
+            android:layout_height="52sp"
+            android:layout_marginTop="12dp"
             android:autoLink="web"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/websiteData"
             android:textColorLink="#1976D2"
-            android:textSize="30sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewWebsite"
-            app:layout_constraintEnd_toEndOf="@+id/linkPhoneNumber"
-            app:layout_constraintStart_toStartOf="@+id/linkPhoneNumber" />
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="@+id/linkPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/linkPhoneNumber" />
 
         <TextView
             android:id="@+id/textViewTags"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="@string/tagsView"
             android:textColor="#090303"
-            android:textSize="24sp"
+            app:autoSizeMaxTextSize="24sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/linkWebsite"
             app:layout_constraintHorizontal_bias="0.0"

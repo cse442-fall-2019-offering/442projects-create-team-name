@@ -4,24 +4,22 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.view.View;
+import android.widget.SearchView;
 
-import com.cse442.createteamname.ui.results.ResultsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity implements Restaurant_Information.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
+  
     private NavController navController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +36,21 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         NavigationUI.setupWithNavController(navView, navController);
     }
 
-    public void buttonClickShowResults(View v) {
-          Navigation.findNavController(v).navigate(R.id.action_home_to_results);
-    }
+    //entered text in searchView gets read
+    public void search_input(View v){
+        final SearchView search_view = v.findViewById(R.id.i_know_q);
+        search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+        //Toast.makeText(getApplicationContext(), get_tag2(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -54,4 +61,10 @@ public class MainActivity extends AppCompatActivity implements Restaurant_Inform
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void open(View view) {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/zcSfb9QDnGQYXuCPA"));
+        startActivity(browserIntent);
+    }
+
 }
