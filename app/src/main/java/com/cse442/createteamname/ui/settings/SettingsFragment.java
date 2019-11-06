@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -30,6 +32,17 @@ public class SettingsFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        final TextView dislike = (TextView) root.findViewById(R.id.adddislike);
+        Button add_dislike = (Button) root.findViewById(R.id.button);
+        add_dislike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tag = dislike.getText().toString().toLowerCase();
+                //Toast.makeText(getActivity(), tag, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return root;
     }
 }
