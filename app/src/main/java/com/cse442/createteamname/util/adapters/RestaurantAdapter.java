@@ -1,4 +1,4 @@
-package com.cse442.createteamname.ui.results;
+package com.cse442.createteamname.util.adapters;
 
 import android.content.Context;
 import android.os.Bundle;

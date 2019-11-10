@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
-import com.cse442.createteamname.util.QueryTool;
+import com.cse442.createteamname.util.adapters.RestaurantAdapter;
+import com.cse442.createteamname.util.query.RestaurantQueryTool;
 
 import java.util.ArrayList;
 
@@ -35,10 +36,10 @@ public class ResultsFragment extends Fragment {
         if(getArguments() != null) {
             search_q = getArguments().getString(getString(R.string.search_q_key));
             set_Search(search_q);
-            restaurants = QueryTool.queryTags(search_q.split(","));
+            restaurants = RestaurantQueryTool.query(search_q.split(","));
         }
         else {
-            restaurants = QueryTool.queryTags(new String[]{});
+            restaurants = RestaurantQueryTool.query(new String[]{});
         }
 
     }

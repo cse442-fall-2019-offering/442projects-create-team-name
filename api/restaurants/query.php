@@ -1,5 +1,5 @@
 <?php
-require "conn.php";
+require "../conn.php";
 
 $sql = "SELECT * FROM Restaurants";
 
