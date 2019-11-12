@@ -6,7 +6,7 @@
     <string name="title_results">Try these</string>
     <string name="title_info">Info</string>
     <string name="dont_know_text">I Don\'t Know What I Want</string>
-    <string name="i_know_text">1 to 3 Tags (e.g. Italian, Spicy, Fast)</string>
+    <string name="i_know_text">Enter tags... (e.g. american, fastfood, etc.)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="give_me_directions">Give Me Directions</string>
     <string name="tags_tag1_tag2_tag3">Tags: tag1, tag2, tag3</string>
@@ -31,4 +31,5 @@
     <string name="restaurant_key">restaurant_info</string>
     <string name="search_q_key">search_q</string>
     <string name="i_know_search_label">I Know What Cuisine I Want:</string>
+    <string name="tag_suggestion_text">Tag Suggestion</string>
 </resources>
