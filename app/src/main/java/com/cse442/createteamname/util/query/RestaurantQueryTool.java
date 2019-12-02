@@ -14,7 +14,7 @@ public class RestaurantQueryTool extends QueryTool {
     private static final String LOCATION = "restaurants/query.php";
     private static final String PARAM_VAR = "tags[]";
     private static final String NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
-            DESCRIPTION = "description", WEB = "website";
+            DESCRIPTION = "description", WEB = "website", LAT = "lat", LON = "lon";
 
     public static ArrayList<Restaurant> query(String... tags){
         ArrayList<Restaurant> restaurants = new ArrayList<>();
@@ -28,7 +28,7 @@ public class RestaurantQueryTool extends QueryTool {
             for (int i = 0; i < jsonArray.length(); ++i){
                 JSONObject obj = jsonArray.getJSONObject(i);
                 restaurants.add(new Restaurant(obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
-                        obj.getString(WEB), new String[]{}));
+                        obj.getString(WEB), obj.getString(DESCRIPTION), obj.getString(HOURS), obj.getString(LAT), obj.getString(LON), new String[]{}));
             }
         } catch (ExecutionException e) {
             // Does not need to be handled. Empty JSON

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
+import com.google.android.gms.maps.MapView;
 
 import org.w3c.dom.Text;
 
@@ -52,6 +53,23 @@ public class Restaurant_Information extends Fragment {
         // Display the restaurant website in the fragment
         TextView websiteTextView = (TextView) root.findViewById(R.id.linkWebsite);
         websiteTextView.setText(restaurant.getWebsite());
+
+        // Display the restaurant description in the fragment
+        TextView descriptionTextView = (TextView) root.findViewById(R.id.textViewDescription);
+        descriptionTextView.setText(restaurant.getDescription());
+
+        // Display the restaurant hours in the fragment
+        TextView hoursTextView = (TextView) root.findViewById(R.id.textViewHoursData);
+        hoursTextView.setText(restaurant.getHours());
+
+        // Create mapView and display in fragment
+        // TODO: Create and pass mapView using restaurant.getLat(), restaurant.getLon()
+        // MapView mapView = (MapView) root.findViewById(R.id.mapView);
+        Float lat = Float.parseFloat(restaurant.getLat());
+        Float lon = Float.parseFloat(restaurant.getLon());
+
+
+
 
         // Display the restaurant tags in the fragment
         TextView tagsTextView = (TextView) root.findViewById(R.id.textViewTags);

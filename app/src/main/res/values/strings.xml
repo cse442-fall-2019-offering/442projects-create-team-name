@@ -32,4 +32,7 @@
     <string name="search_q_key">search_q</string>
     <string name="i_know_search_label">I Know What Cuisine I Want:</string>
     <string name="tag_suggestion_text">Tag Suggestion</string>
+    <string name="description">desription</string>
+    <string name="hours">Hours:</string>
+    <string name="hoursData" />
 </resources>
