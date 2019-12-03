@@ -31,4 +31,6 @@
     <string name="restaurant_key">restaurant_info</string>
     <string name="search_q_key">search_q</string>
     <string name="i_know_search_label">I Know What Cuisine I Want:</string>
+    <string name="delete">X</string>
+    <string name="dislike">Dislike</string>
 </resources>
