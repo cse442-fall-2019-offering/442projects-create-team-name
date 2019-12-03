@@ -53,7 +53,7 @@ public class DislikesAdapter extends RecyclerView.Adapter<DislikesAdapter.MyView
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(@NonNull DislikesAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final DislikesAdapter.MyViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         TextView textView = holder.textView;
@@ -62,7 +62,10 @@ public class DislikesAdapter extends RecyclerView.Adapter<DislikesAdapter.MyView
         holder.itemView.findViewById(R.id.deleteButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int pos = holder.getAdapterPosition();
+                dislikes.remove(pos);
+                notifyItemRemoved(pos);
+                notifyItemRangeChanged(pos, dislikes.size());
             }
         });
 
