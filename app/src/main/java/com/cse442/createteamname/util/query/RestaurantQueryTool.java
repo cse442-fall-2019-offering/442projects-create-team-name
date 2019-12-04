@@ -13,7 +13,7 @@ public class RestaurantQueryTool extends QueryTool {
 
     private static final String LOCATION = API_URL + "restaurants/query.php";
     private static final String INC = "tags[]", EXC = "exc[]";
-    private static final String NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
+    private static final String ID = "id", NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
             DESCRIPTION = "description", WEB = "website";
 
     public static ArrayList<Restaurant> query(String[] inc, String[] exc){
@@ -28,8 +28,9 @@ public class RestaurantQueryTool extends QueryTool {
             // Loop through the JSON objects and add them to the restaurant list
             for (int i = 0; i < jsonArray.length(); ++i){
                 JSONObject obj = jsonArray.getJSONObject(i);
-                restaurants.add(new Restaurant(obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
-                        obj.getString(WEB), new String[]{}));
+                int id = obj.getInt(ID);
+                restaurants.add(new Restaurant(id, obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
+                        obj.getString(WEB), TagQueryTool.query(id+"")));
             }
         } catch (ExecutionException e) {
             // Does not need to be handled. Empty JSON
