@@ -31,10 +31,12 @@ public class ResultsFragment extends Fragment {
         // Try to get the args that have been sent to this fragment
         if(getArguments() != null) {
             search_q = getArguments().getString(getString(R.string.search_q_key));
-            restaurants = RestaurantQueryTool.query(search_q.split(","));
+            // TODO: Second array is the disliked tags from preferences
+            restaurants = RestaurantQueryTool.query(search_q.split(","), new String[]{});
         }
         else {
-            restaurants = RestaurantQueryTool.query(new String[]{});
+            // TODO: Second array is the disliked tags from preferences
+            restaurants = RestaurantQueryTool.query(new String[]{}, new String[]{});
         }
 
     }
