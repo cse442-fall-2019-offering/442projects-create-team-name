@@ -11,7 +11,11 @@ public class DistanceFilter {
         for(Restaurant restaurant : restaurants){
             restaurant.calculateDistance(locationUtil);
             if(restaurant.getDistance() <= maxDist){
-                filtered.add(restaurant);
+                int i = 0;
+                while(i < filtered.size() && filtered.get(i).getDistance() < restaurant.getDistance()){
+                    ++i;
+                }
+                filtered.add(i, restaurant);
             }
         }
 
