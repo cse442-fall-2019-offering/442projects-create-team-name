@@ -1,7 +1,6 @@
-package com.cse442.createteamname.ui.settings;
+package com.cse442.createteamname.util.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
+import com.cse442.createteamname.util.FileFunctions;
 
 import java.util.ArrayList;
 
@@ -30,11 +30,15 @@ public class DislikesAdapter extends RecyclerView.Adapter<DislikesAdapter.MyView
 
     private Context context;
     private ArrayList<String> dislikes;
+    private FileFunctions ff;
+    private String filePath;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DislikesAdapter(Context context, ArrayList<String> dislike_list) {
+    public DislikesAdapter(Context context, ArrayList<String> dislike_list, String p) {
         this.context = context;
         this.dislikes = dislike_list;
+        this.filePath = p;
+        this.ff = new FileFunctions();
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,6 +70,7 @@ public class DislikesAdapter extends RecyclerView.Adapter<DislikesAdapter.MyView
                 dislikes.remove(pos);
                 notifyItemRemoved(pos);
                 notifyItemRangeChanged(pos, dislikes.size());
+                ff.saveFile(dislikes, filePath);
             }
         });
 

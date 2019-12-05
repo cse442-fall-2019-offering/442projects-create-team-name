@@ -1,13 +1,11 @@
 package com.cse442.createteamname.ui.settings;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,26 +14,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
+import com.cse442.createteamname.util.FileFunctions;
+import com.cse442.createteamname.util.adapters.DislikesAdapter;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
-import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
@@ -46,6 +39,8 @@ public class SettingsFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private FileFunctions ff;
+    private String prefFile;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
@@ -60,8 +55,11 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        prefFile = getContext().getFilesDir() + "/dislikes.txt";
+        ff = new FileFunctions();
+
         dislikes = new ArrayList<String>();
-        dislikes = loadFIle(getView());
+        dislikes = ff.loadFIle(prefFile);
 
 
         super.onCreate(savedInstanceState);
@@ -77,7 +75,7 @@ public class SettingsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new DislikesAdapter(getContext(), dislikes);
+        mAdapter = new DislikesAdapter(getContext(), dislikes, prefFile);
         recyclerView.setAdapter(mAdapter);
 
         final TextView dislike = (TextView) root.findViewById(R.id.adddislike);
@@ -92,11 +90,10 @@ public class SettingsFragment extends Fragment {
                     if (dislikes.size() < 5) {
                         dislikes.add(tag);
 
+                        ff.saveFile(dislikes, prefFile);
+                        dislikes = ff.loadFIle(prefFile);
 
-                        saveFile(view, dislikes);
-                        dislikes = loadFIle(view);
-
-                        mAdapter = new DislikesAdapter(getContext(), dislikes);
+                        mAdapter = new DislikesAdapter(getContext(), dislikes, prefFile);
                         recyclerView.setAdapter(mAdapter);
                     } else {
                         Toast.makeText(getActivity(), "Remove a tag to add a new one.", Toast.LENGTH_SHORT).show();
@@ -109,41 +106,5 @@ public class SettingsFragment extends Fragment {
         return root;
     }
 
-    public ArrayList<String> loadFIle(View v){
-        ArrayList<String> arr = new ArrayList<String>();
-        String line;
 
-        FileInputStream fis = null;
-        try{
-            fis = getContext().openFileInput("dislikes.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-            while((line = br.readLine()) != null){
-                arr.add(line);
-            }
-            br.close();
-            fis.close();
-            Toast.makeText(getActivity(), "" + arr, Toast.LENGTH_SHORT).show();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return arr;
-    }
-
-    public void saveFile(View v, ArrayList<String> disList) {
-        try {
-            FileOutputStream fos = getContext().openFileOutput("dislikes.txt", Context.MODE_PRIVATE);
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-            for(String str: disList){
-                bw.append(str + System.lineSeparator());
-            }
-            bw.close();
-            fos.close();
-            //Toast.makeText(getActivity(), "Saved to " + getContext().getFilesDir() + "/dislikes.txt", Toast.LENGTH_LONG).show();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 }
