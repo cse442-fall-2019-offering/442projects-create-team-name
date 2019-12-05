@@ -34,13 +34,12 @@ import java.util.ArrayList;
 public class SettingsFragment extends Fragment {
 
     private SettingsViewModel settingsViewModel;
-    private static ArrayList<String> dislikes;
-    private DislikesAdapter dislikesAdapter;
+    private ArrayList<String> dislikes;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private FileFunctions ff;
-    private String prefFile;
+    private String dislikesFile, maxDistanceFile;
+    private int maxDistance;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
@@ -55,12 +54,11 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        prefFile = getContext().getFilesDir() + "/dislikes.txt";
-        ff = new FileFunctions();
+        dislikesFile = getContext().getFilesDir() + "/dislikes.txt";
+        maxDistanceFile = getContext().getFilesDir() + "/maxDistance.txt";
 
-        dislikes = new ArrayList<String>();
-        dislikes = ff.loadFIle(prefFile);
-
+        dislikes = FileFunctions.getDislikes(dislikesFile);
+        maxDistance = FileFunctions.getMaxDistance(maxDistanceFile);
 
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.fragment_settings);
@@ -75,7 +73,7 @@ public class SettingsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new DislikesAdapter(getContext(), dislikes, prefFile);
+        mAdapter = new DislikesAdapter(getContext(), dislikes, dislikesFile);
         recyclerView.setAdapter(mAdapter);
 
         final TextView dislike = (TextView) root.findViewById(R.id.adddislike);
@@ -87,22 +85,34 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
                 String tag = dislike.getText().toString().toLowerCase();
                 if (tag != "") {
-                    if (dislikes.size() < 5) {
-                        dislikes.add(tag);
+                    dislikes.add(tag);
 
-                        ff.saveFile(dislikes, prefFile);
-                        dislikes = ff.loadFIle(prefFile);
+                    FileFunctions.saveFile(dislikes, dislikesFile);
+                    dislikes = FileFunctions.getDislikes(dislikesFile);
 
-                        mAdapter = new DislikesAdapter(getContext(), dislikes, prefFile);
-                        recyclerView.setAdapter(mAdapter);
-                    } else {
-                        Toast.makeText(getActivity(), "Remove a tag to add a new one.", Toast.LENGTH_SHORT).show();
-                    }
+                    mAdapter = new DislikesAdapter(getContext(), dislikes, dislikesFile);
+                    recyclerView.setAdapter(mAdapter);
                 } else {
                     Toast.makeText(getActivity(), "Try adding some text.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        // Get the max distance field and restore the value
+        final TextView maxDistanceView = (TextView) root.findViewById(R.id.max_distance);
+        maxDistanceView.setText(FileFunctions.getMaxDistance(maxDistanceFile) + "");
+
+        // Set the listener for the button to save the max distance
+        Button saveMaxDistance = (Button) root.findViewById(R.id.save_max_distance);
+        saveMaxDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<String> distance = new ArrayList<>();
+                distance.add(maxDistanceView.getText().toString());
+                FileFunctions.saveFile(distance, maxDistanceFile);
+            }
+        });
+
         return root;
     }
 

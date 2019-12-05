@@ -21,11 +21,19 @@ import java.util.ArrayList;
 
 public class FileFunctions {
 
-    public FileFunctions(){
-
+    public static ArrayList<String> getDislikes(String path){
+        return loadFile(path);
     }
 
-    public ArrayList<String> loadFIle(String path){
+    public static int getMaxDistance(String path){
+        ArrayList<String> vals = loadFile(path);
+        if(vals.size() == 0){
+            return 10;
+        }
+        return Integer.parseInt(vals.get(0));
+    }
+
+    private static ArrayList<String> loadFile(String path){
         ArrayList<String> arr = new ArrayList<String>();
         String line;
 
@@ -49,7 +57,7 @@ public class FileFunctions {
         return arr;
     }
 
-    public void saveFile(ArrayList<String> disList, String path) {
+    public static void saveFile(ArrayList<String> disList, String path) {
         try {
             File file = new File(path);
 //            FileOutputStream fos = sf.getContext().openFileOutput("dislikes.txt", Context.MODE_PRIVATE);
