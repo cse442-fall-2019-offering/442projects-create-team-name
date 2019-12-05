@@ -35,4 +35,7 @@
     <string name="description">desription</string>
     <string name="hours">Hours:</string>
     <string name="hoursData" />
+    <string name="too_picky">You\'re too picky!</string>
+    <string name="delete">X</string>
+    <string name="dislike">Dislike</string>
 </resources>

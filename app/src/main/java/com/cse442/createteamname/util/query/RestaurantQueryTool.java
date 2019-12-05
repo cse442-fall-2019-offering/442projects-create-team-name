@@ -11,14 +11,15 @@ import java.util.concurrent.ExecutionException;
 
 public class RestaurantQueryTool extends QueryTool {
 
-    private static final String LOCATION = "restaurants/query.php";
-    private static final String PARAM_VAR = "tags[]";
-    private static final String NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
-            DESCRIPTION = "description", WEB = "website", LAT = "lat", LON = "lon";
+    private static final String LOCATION = API_URL + "restaurants/query.php";
+    private static final String INC = "tags[]", EXC = "exc[]";
+    private static final String ID = "id", NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
+            DESCRIPTION = "description", WEB = "website";
 
-    public static ArrayList<Restaurant> query(String... tags){
+    public static ArrayList<Restaurant> query(String[] inc, String[] exc){
         ArrayList<Restaurant> restaurants = new ArrayList<>();
-        String url = getFullUrl(LOCATION, PARAM_VAR, tags);
+        String url = getFullUrl(LOCATION, INC, inc);
+        url = getFullUrl(url, EXC, exc);
 
         try {
             // Get the JSON array from the query
@@ -29,6 +30,7 @@ public class RestaurantQueryTool extends QueryTool {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 restaurants.add(new Restaurant(obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
                         obj.getString(WEB), obj.getString(DESCRIPTION), obj.getString(HOURS), obj.getDouble(LAT), obj.getDouble(LON), new String[]{}));
+
             }
         } catch (ExecutionException e) {
             // Does not need to be handled. Empty JSON

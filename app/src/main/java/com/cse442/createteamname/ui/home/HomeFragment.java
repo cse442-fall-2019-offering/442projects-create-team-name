@@ -1,7 +1,9 @@
 package com.cse442.createteamname.ui.home;
 
 import android.database.MatrixCursor;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,13 @@ import com.cse442.createteamname.util.adapters.TagAdapter;
 import com.cse442.createteamname.util.query.TagQueryTool;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
 
-    private ArrayList<String> tags;
+    private String[] tags;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {

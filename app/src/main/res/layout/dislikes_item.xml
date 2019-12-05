@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dislikeText"
+        android:layout_width="364dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#FFF9F9"
+        android:text="@string/dislike"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="30dp"
+        android:layout_height="33dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:text="@string/delete" />
+</LinearLayout>

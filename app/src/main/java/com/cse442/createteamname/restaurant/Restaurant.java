@@ -9,7 +9,6 @@ import com.cse442.createteamname.util.gps.LocationUtil;
 import java.io.Serializable;
 
 public class Restaurant implements Serializable {
-
     private final int EARTH_RAD = 6371;
 
     private String name, address, phone, website, description, hours;
@@ -30,6 +29,8 @@ public class Restaurant implements Serializable {
         miles = 0;
         kilometers = 0;
     }
+
+    public int getId(){ return id; }
 
     public String getName() {
         return name;

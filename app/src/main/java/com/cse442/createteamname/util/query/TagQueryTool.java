@@ -9,16 +9,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
 public class TagQueryTool extends QueryTool {
 
-    private static final String LOCATION = "tags/query.php";
-    private static final String PARAM_VAR = "rest_id";
+    private static final String LOCATION = API_URL + "tags/query.php";
+    private static final String REST_ID = "rest_id[]";
 
-    public static ArrayList<String> query(String... ids){
+    public static String[] query(String... ids){
         ArrayList<String> tags = new ArrayList<>();
-        String url = getFullUrl(LOCATION, PARAM_VAR, ids);
+        String url = getFullUrl(LOCATION, REST_ID, ids);
 
         try {
             // Get the JSON array from the query
@@ -35,7 +36,9 @@ public class TagQueryTool extends QueryTool {
         } catch (JSONException e) {
             // Does not need to be handled
         }
-
-        return tags;
+        
+        Object[] objArr = tags.toArray();
+        String[] ret = Arrays.copyOf(objArr, objArr.length, String[].class);
+        return ret;
     }
 }
