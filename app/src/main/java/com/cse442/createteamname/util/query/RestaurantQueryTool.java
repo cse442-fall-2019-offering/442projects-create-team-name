@@ -28,9 +28,9 @@ public class RestaurantQueryTool extends QueryTool {
             // Loop through the JSON objects and add them to the restaurant list
             for (int i = 0; i < jsonArray.length(); ++i){
                 JSONObject obj = jsonArray.getJSONObject(i);
-                int id = obj.getInt(ID);
-                restaurants.add(new Restaurant(id, obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
-                        obj.getString(WEB), TagQueryTool.query(id+"")));
+                restaurants.add(new Restaurant(obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
+                        obj.getString(WEB), obj.getString(DESCRIPTION), obj.getString(HOURS), obj.getDouble(LAT), obj.getDouble(LON), new String[]{}));
+
             }
         } catch (ExecutionException e) {
             // Does not need to be handled. Empty JSON

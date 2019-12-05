@@ -21,12 +21,14 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView restaurantName;
+        public TextView restaurantName, distanceLabel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Get the textview from the xml layout
+            // Get the textview for the restaurant name
             restaurantName = (TextView) itemView.findViewById(R.id.restaurant_name);
+            // Get the textview for the distance
+            distanceLabel = (TextView) itemView.findViewById(R.id.distance_view);
         }
     }
 
@@ -57,6 +59,10 @@ public class RestaurantAdapter extends Adapter<RestaurantAdapter.ViewHolder> {
         // Set the label of this list item to the restaurant name
         TextView textView = holder.restaurantName;
         textView.setText(restaurants.get(position).getName());
+
+        // Set the distance label
+        TextView distance = holder.distanceLabel;
+        distance.setText(String.format("%.1f mi", restaurants.get(position).getDistance()));
 
         // When the item is selected, send the restaurant object to the restaurant info screen
         holder.itemView.setOnClickListener(new View.OnClickListener() {
