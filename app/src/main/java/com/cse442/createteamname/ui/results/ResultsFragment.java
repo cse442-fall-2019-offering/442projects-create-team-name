@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
 import com.cse442.createteamname.util.adapters.RestaurantAdapter;
+import com.cse442.createteamname.util.gps.DistanceFilter;
+import com.cse442.createteamname.util.gps.LocationUtil;
 import com.cse442.createteamname.util.query.RestaurantQueryTool;
 
 import java.util.ArrayList;
@@ -36,6 +38,9 @@ public class ResultsFragment extends Fragment {
         else {
             restaurants = RestaurantQueryTool.query(new String[]{});
         }
+
+        // TODO: TANISHA! UNCOMMENT THIS WHEN DONE!
+        // restaurants = DistanceFilter.filterDistance(new LocationUtil(getContext()), restaurants);
 
     }
 

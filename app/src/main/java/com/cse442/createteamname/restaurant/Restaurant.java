@@ -1,6 +1,9 @@
 package com.cse442.createteamname.restaurant;
 
 import android.text.TextUtils;
+import android.util.Pair;
+
+import com.cse442.createteamname.util.gps.LocationUtil;
 
 import java.io.Serializable;
 
@@ -95,5 +98,14 @@ public class Restaurant implements Serializable {
 
     public void setTags(String[] tags){
         this.tags = tags;
+    }
+
+    public void calculateDistance(LocationUtil locationUtil){
+        // TODO: TANISHA! DO THIS!
+    }
+
+    public double getDistance(){
+        // TODO: TANISHA! DO THIS!
+        return 0.0;
     }
 }
