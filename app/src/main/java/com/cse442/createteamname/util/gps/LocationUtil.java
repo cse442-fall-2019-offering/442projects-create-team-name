@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 public class LocationUtil implements LocationListener {
 
-    private double latitiude, longitude;
+    private double latitude, longitude;
 
     private LocationManager locationManager;
 
@@ -17,15 +17,18 @@ public class LocationUtil implements LocationListener {
     public LocationUtil(Context context) {
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        latitiude = location.getLatitude();
+        latitude = location.getLatitude();
         longitude = location.getLongitude();
     }
 
-    public double getLatitiude() { return latitiude; }
+    public double getLatitude() { return latitude; }
 
     public double getLongitude() { return longitude; }
 

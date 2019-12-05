@@ -62,15 +62,6 @@ public class Restaurant_Information extends Fragment {
         TextView hoursTextView = (TextView) root.findViewById(R.id.textViewHoursData);
         hoursTextView.setText(restaurant.getHours());
 
-        // Create mapView and display in fragment
-        // TODO: Create and pass mapView using restaurant.getLat(), restaurant.getLon()
-        // MapView mapView = (MapView) root.findViewById(R.id.mapView);
-        Float lat = Float.parseFloat(restaurant.getLat());
-        Float lon = Float.parseFloat(restaurant.getLon());
-
-
-
-
         // Display the restaurant tags in the fragment
         TextView tagsTextView = (TextView) root.findViewById(R.id.textViewTags);
         tagsTextView.setText("Tags: " + restaurant.getTagsString());

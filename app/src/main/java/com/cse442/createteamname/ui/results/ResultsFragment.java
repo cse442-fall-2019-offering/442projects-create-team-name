@@ -40,7 +40,7 @@ public class ResultsFragment extends Fragment {
         }
 
         // TODO: TANISHA! UNCOMMENT THIS WHEN DONE!
-        // restaurants = DistanceFilter.filterDistance(new LocationUtil(getContext()), restaurants);
+        restaurants = DistanceFilter.filterDistance(new LocationUtil(getContext()), restaurants, 10);
 
     }
 
