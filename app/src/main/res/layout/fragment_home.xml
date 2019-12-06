@@ -65,7 +65,7 @@
         android:layout_width="362dp"
         android:layout_height="322dp"
         app:srcCompat="@drawable/long_logo"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="-39dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-29dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
