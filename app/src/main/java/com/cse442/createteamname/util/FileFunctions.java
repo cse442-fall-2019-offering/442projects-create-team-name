@@ -30,7 +30,11 @@ public class FileFunctions {
         if(vals.size() == 0){
             return 10;
         }
-        return Integer.parseInt(vals.get(0));
+        try{
+            return Integer.parseInt(vals.get(0));
+        } catch (Exception e){
+            return 10;
+        }
     }
 
     private static ArrayList<String> loadFile(String path){

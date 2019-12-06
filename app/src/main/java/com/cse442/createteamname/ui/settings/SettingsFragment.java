@@ -107,9 +107,16 @@ public class SettingsFragment extends Fragment {
         saveMaxDistance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> distance = new ArrayList<>();
-                distance.add(maxDistanceView.getText().toString());
-                FileFunctions.saveFile(distance, maxDistanceFile);
+                String dist = maxDistanceView.getText().toString();
+                if(dist != "") {
+                    ArrayList<String> distance = new ArrayList<>();
+                    distance.add(dist);
+                    FileFunctions.saveFile(distance, maxDistanceFile);
+                } else {
+                    ArrayList<String> distance = new ArrayList<>();
+                    distance.add("10");
+                    FileFunctions.saveFile(distance, maxDistanceFile);
+                }
             }
         });
 
