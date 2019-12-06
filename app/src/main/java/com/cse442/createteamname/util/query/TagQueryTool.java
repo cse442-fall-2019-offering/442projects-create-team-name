@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 public class TagQueryTool extends QueryTool {
 
     private static final String LOCATION = API_URL + "tags/query.php";
-    private static final String REST_ID = "rest_id[]";
+    private static final String REST_ID = "rest_id";
 
     public static String[] query(String... ids){
         ArrayList<String> tags = new ArrayList<>();
