@@ -14,7 +14,7 @@ public class RestaurantQueryTool extends QueryTool {
     private static final String LOCATION = API_URL + "restaurants/query.php";
     private static final String INC = "tags[]", EXC = "exc[]";
     private static final String ID = "id", NAME = "name", ADDRESS = "address", PHONE = "phone", HOURS = "hours",
-            DESCRIPTION = "description", WEB = "website";
+            DESCRIPTION = "description", WEB = "website", LAT = "lat", LON = "lon";
 
     public static ArrayList<Restaurant> query(String[] inc, String[] exc){
         ArrayList<Restaurant> restaurants = new ArrayList<>();
@@ -28,8 +28,9 @@ public class RestaurantQueryTool extends QueryTool {
             // Loop through the JSON objects and add them to the restaurant list
             for (int i = 0; i < jsonArray.length(); ++i){
                 JSONObject obj = jsonArray.getJSONObject(i);
-                restaurants.add(new Restaurant(obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
-                        obj.getString(WEB), obj.getString(DESCRIPTION), obj.getString(HOURS), obj.getDouble(LAT), obj.getDouble(LON), new String[]{}));
+                int id = obj.getInt(ID);
+                restaurants.add(new Restaurant(id, obj.getString(NAME), obj.getString(ADDRESS), obj.getString(PHONE),
+                        obj.getString(WEB), obj.getString(DESCRIPTION), obj.getString(HOURS), obj.getDouble(LAT), obj.getDouble(LON), TagQueryTool.query(id+"")));
 
             }
         } catch (ExecutionException e) {
