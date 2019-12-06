@@ -13,7 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
-import com.cse442.createteamname.util.QueryTool;
+import com.cse442.createteamname.util.FileFunctions;
+import com.cse442.createteamname.util.adapters.RestaurantAdapter;
+import com.cse442.createteamname.util.gps.DistanceFilter;
+import com.cse442.createteamname.util.gps.LocationUtil;
+import com.cse442.createteamname.util.query.RestaurantQueryTool;
 
 import java.util.ArrayList;
 
@@ -21,25 +25,30 @@ public class ResultsFragment extends Fragment {
 
     private ArrayList<Restaurant> restaurants;
 
-    private String tag1;
-    private String tag2;
-    private String tag3;
-
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
         String search_q = "";
 
+        ArrayList<String> temp = FileFunctions.getDislikes(getContext().getFilesDir() + "/dislikes.txt");
+        String[] dislikes = new String[temp.size()];
+        for(int i = 0; i < temp.size(); ++i){
+            dislikes[i] = temp.get(i);
+        }
+
         // Try to get the args that have been sent to this fragment
         if(getArguments() != null) {
             search_q = getArguments().getString(getString(R.string.search_q_key));
-            set_Search(search_q);
-            restaurants = QueryTool.queryTags(search_q.split(","));
+            restaurants = RestaurantQueryTool.query(search_q.split(","), dislikes);
         }
         else {
-            restaurants = QueryTool.queryTags(new String[]{});
+            restaurants = RestaurantQueryTool.query(new String[]{}, dislikes);
         }
+
+        restaurants = DistanceFilter.filterDistance(new LocationUtil(getContext()), restaurants,
+                FileFunctions.getMaxDistance(getContext().getFilesDir() + "/maxDistance.txt"));
+
 
     }
 
@@ -59,46 +68,5 @@ public class ResultsFragment extends Fragment {
         recyclerView.setAdapter(restaurantAdapter);
 
         return root;
-    }
-
-    //gets the search query so it can be passed on to other functions for the DB
-    public void set_Search(String s){
-        //The toast below is the test
-        //Toast.makeText(getApplicationContext(), s.toLowerCase(), Toast.LENGTH_SHORT).show();
-
-        //sSeparates string input by comma
-        String[] input_List = s.split(",");
-
-        //set the different input tags
-        if (input_List.length == 1) {
-            String str1 = input_List[0];
-            tag1 = str1.replace(" ", "").toLowerCase();
-        }
-        if (input_List.length == 2) {
-            String str1 = input_List[0];
-            tag1 = str1.replace(" ", "").toLowerCase();
-            String str2 = input_List[1];
-            tag2 = str2.replace(" ", "").toLowerCase();
-        }
-        if (input_List.length >= 3) {
-            String str1 = input_List[0];
-            tag1 = str1.replace(" ", "").toLowerCase();
-            String str2 = input_List[1];
-            tag2 = str2.replace(" ", "").toLowerCase();
-            String str3 = input_List[2];
-            tag3 = str3.replace(" ", "").toLowerCase();
-        }
-    }
-
-    public String get_tag1(){
-        return tag1;
-    }
-
-    public String get_tag2(){
-        return tag2;
-    }
-
-    public String get_tag3(){
-        return tag3;
     }
 }
