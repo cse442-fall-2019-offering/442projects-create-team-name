@@ -3,6 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/too_picky"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/too_picky"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_results"
         android:layout_height="match_parent"

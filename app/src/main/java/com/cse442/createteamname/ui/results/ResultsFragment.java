@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cse442.createteamname.R;
 import com.cse442.createteamname.restaurant.Restaurant;
+import com.cse442.createteamname.util.FileFunctions;
 import com.cse442.createteamname.util.adapters.RestaurantAdapter;
+import com.cse442.createteamname.util.gps.DistanceFilter;
+import com.cse442.createteamname.util.gps.LocationUtil;
 import com.cse442.createteamname.util.query.RestaurantQueryTool;
 
 import java.util.ArrayList;
@@ -28,14 +31,24 @@ public class ResultsFragment extends Fragment {
 
         String search_q = "";
 
+        ArrayList<String> temp = FileFunctions.getDislikes(getContext().getFilesDir() + "/dislikes.txt");
+        String[] dislikes = new String[temp.size()];
+        for(int i = 0; i < temp.size(); ++i){
+            dislikes[i] = temp.get(i);
+        }
+
         // Try to get the args that have been sent to this fragment
         if(getArguments() != null) {
             search_q = getArguments().getString(getString(R.string.search_q_key));
-            restaurants = RestaurantQueryTool.query(search_q.split(","));
+            restaurants = RestaurantQueryTool.query(search_q.split(","), dislikes);
         }
         else {
-            restaurants = RestaurantQueryTool.query(new String[]{});
+            restaurants = RestaurantQueryTool.query(new String[]{}, dislikes);
         }
+
+        restaurants = DistanceFilter.filterDistance(new LocationUtil(getContext()), restaurants,
+                FileFunctions.getMaxDistance(getContext().getFilesDir() + "/maxDistance.txt"));
+
 
     }
 
